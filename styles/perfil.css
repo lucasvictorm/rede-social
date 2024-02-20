@@ -72,3 +72,105 @@ body{
     align-items: center;
 }
 
+.perfilHeader{
+    display: flex;
+    gap: 2em;
+    color: white;
+}
+
+.perfilHeader .fotoPerfil{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.infos h1{
+    font-size: 1.7em;
+}
+
+.infos h2{
+    font-size: 1.3em;
+}
+
+.perfilHeader img{
+    width: 100%;
+}
+
+.post{
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.post img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.post .cabecalho{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.post .cabecalho a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.post .postInterno{
+    border: 1px solid black;
+   /* padding-left: .8em;
+    padding-right: .8em;*/
+    border-radius: 15px;
+}
+
+.post .postInterno h2{
+    font-size: 1.3em;
+}
+
+.post .conteudo{
+    /*border-radius: 15px;*/
+    border-top: 1px solid black;
+    
+    padding: 1em;
+}
+
+.post .titulo{
+    padding-left: 1em;
+}
+
+.botoes{
+    display: flex;
+    justify-content: end;
+    padding: 1em;
+    gap: 1em;
+    border-top: 1px solid black;
+}
+
+.botoes span{
+    color: black;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.botoes button{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-size: 1em;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

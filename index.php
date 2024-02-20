@@ -11,7 +11,7 @@ exit;
 }
 
 $sql = mysqli_query($conexao, "select p.usuario_id, p.id, p.titulo, p.conteudo, u.username, u.foto from posts as p
-join usuarios u on u.id = p.usuario_id") or die(mysqli_error($conexao));
+join usuarios u on u.id = p.usuario_id order by id desc") or die(mysqli_error($conexao));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,12 +27,11 @@ join usuarios u on u.id = p.usuario_id") or die(mysqli_error($conexao));
 	$sqlUser = mysqli_query($conexao, "select foto, username from usuarios where id = ".$_SESSION['user_id']) or die(mysqli_error($conexao));
 	
 	$menuData = mysqli_fetch_assoc($sqlUser);
-	
+	$caminho = !isset($menuData["foto"]) ? "default.png": $menuData["foto"];
 	echo("
-	
 	<div class='menu'>
 	<div>
-	<img src='./fotosPerfil/".$menuData["foto"]."' alt='Foto de perfil'>
+	<img src='./fotosPerfil/".$caminho."' alt='Foto de perfil'>
 	<p id='user'>".$menuData['username']."</p>
 	
 	<div class='adicionarBotao'>

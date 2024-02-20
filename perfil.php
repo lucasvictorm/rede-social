@@ -3,7 +3,11 @@
      
     include "./connection.php";
     
+    
     $id = $_GET["id"];
+    if($id == $_SESSION["user_id"]){
+        echo("<script>window.location='meuPerfil.php'</script>");
+    }
     
     $sql=mysqli_query($conexao,"select * from usuarios where id = $id") or die(mysqli_error($conexao));
     $dados = mysqli_fetch_assoc($sql);
@@ -42,11 +46,11 @@
     </div>");
     ?>
     <section class="perfilHeader">
-    
-    <form action="atualizarUser.php" method="POST" enctype="multipart/form-data">
+            <div class="fotoPerfil">
+            <img src="./fotosPerfil/<?=!isset($dados["foto"]) ? "default.png": $dados["foto"]?>" alt="Foto de perfil">
+            </div>
+        
         <div class="infos">
-        <img src="./fotosPerfil/<?=!isset($dados["foto"]) ? "default.png": $dados["foto"]?>" alt="Foto de perfil">
-        <div>
         <h1><?=$dados["nome"]?></h1>
         
         <h2>Bio</h2>
@@ -54,19 +58,55 @@
         </div>
         
         </div>
-
-
-    </form>
     </section>
     
     
-    <h1><?=$dados["nome"]?>
-    </h1>
+<main>
     <h2>Publicações</h2>
-    <div>
-        <?php 
+    <?php 
+        $sqlPosts = mysqli_query($conexao, "select p.usuario_id, p.id, p.titulo, p.conteudo, u.username, u.foto from posts as p
+        join usuarios u on u.id = p.usuario_id and u.id = $id order by id desc") or die(mysqli_error($conexao));
+        while($dados = mysqli_fetch_assoc($sqlPosts)){
+            $row = mysqli_query($conexao, "select posts.id from posts where posts.id = ".$dados["id"]." and posts.usuario_id = ".$_SESSION["user_id"]) or die(mysqli_error($conexao));
+            $numRows = mysqli_num_rows($row);
+            
+            $imagem = isset($dados["foto"]) ? $dados["foto"] : "default.png";
+            
+            echo("<div class='post'>
+                <div class='cabecalho'>
+                <img src='./fotosPerfil/".$imagem."' alt='Foto perfil' width='100px'>
+                <a href='perfil.php?id=".$dados['usuario_id']."'>".$dados["username"]."</a>
+                </div>
+                <div class='postInterno'>
+                <div class='titulo'>
+                <h2>".$dados["titulo"]."</h2>
+                </div>
+                <div class='conteudo'>
+                <p>".$dados["conteudo"]."</p>
+                </div>
+                
+                ");
+                
+                if($numRows){
         
-            $posts = mysqli_query($conexao,"select * from posts where usuario_id = $id") or die(mysqli_error());
+                    echo("<div class='botoes'><a href='editarPost.php?id=".$dados["id"]."'><span class='material-symbols-outlined'>
+                    edit
+                    </span></a>
+                    <button onClick=confirmDelete(".$dados["id"].")><span class='material-symbols-outlined'>
+                    delete
+                    </span></div>");
+                }
+                echo("</div></div>");
+        
+            
+        }
+            
+        ?>
+
+    
+        <?php 
+        /*
+            $posts = mysqli_query($conexao,"select * from posts where usuario_id = $id") or die(mysqli_error($conexao));
             while($post = mysqli_fetch_assoc($posts)){
                 echo("<div>
                 <h2>".$post["titulo"]."</h2>
@@ -74,8 +114,8 @@
                 <p>".$post["conteudo"]."</p></div>");
 
             }
-            
+            */
         ?>
-    </div>
+    </main>
 </body>
 </html>

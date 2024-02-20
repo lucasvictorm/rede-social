@@ -90,7 +90,7 @@
     <main>
         <?php 
         $sqlPosts = mysqli_query($conexao, "select p.usuario_id, p.id, p.titulo, p.conteudo, u.username, u.foto from posts as p
-        join usuarios u on u.id = p.usuario_id and u.id = $userId") or die(mysqli_error($conexao));
+        join usuarios u on u.id = p.usuario_id and u.id = $userId order by id desc") or die(mysqli_error($conexao));
         while($dados = mysqli_fetch_assoc($sqlPosts)){
             $row = mysqli_query($conexao, "select posts.id from posts where posts.id = ".$dados["id"]." and posts.usuario_id = ".$_SESSION["user_id"]) or die(mysqli_error($conexao));
             $numRows = mysqli_num_rows($row);
