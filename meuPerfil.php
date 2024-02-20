@@ -31,12 +31,12 @@
 	</div>
 	
 	
-	<div class='perfilBotao'>
-	<a href='./meuPerfil.php'>
+	<div class='paginaInicial'>
+	<a href='./index.php'>
 	<span class='material-symbols-outlined'>
-	settings
+	home
 	
-	</span><p>Configurações</p>
+	</span><p>Página inicial</p>
 	</a>
 	</div>
 	</div>
@@ -129,7 +129,6 @@
         ?>
     </main>
     </section>
-    
 </body>
 <script>
     let descartar = document.getElementById("descartar");

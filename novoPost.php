@@ -25,45 +25,39 @@ $menuData = mysqli_fetch_assoc($sqlUser);
     <img src='./fotosPerfil/".$menuData["foto"]."' alt='Foto de perfil'>
     <p id='user'>".$menuData['username']."</p>
     
-    <div class='adicionarBotao'>
-    <a href='./novoPost.php'>
-        <span class='material-symbols-outlined'>add_circle
-        </span>
-        <p>Adicionar Publicação</p>
-        </a>
-    </div>
-    
-    
-    <div class='perfilBotao'>
-    <a href='./meuPerfil.php'>
+    <div class='paginaInicial'>
+    <a href='index.php'>
     <span class='material-symbols-outlined'>
-    settings
-    
-    </span><p>Configurações</p>
+home
+</span><p>Página inicial</p>
     </a>
+    
     </div>
+    
     
     </div>");
     ?>
-    <form action="criarPost.php" method="POST">
-        <div>
-        <label for="titulo">Título</label>
-        <input type="text" name="titulo" id="titulo">
-        </div>
+    <main>
         
-        <div>
+        <h1>Nova publicação</h1>
+        <form action="criarPost.php" method="POST">
+            
+            <div class='post'>
+            <div class='postInterno'>
+            <div class='titulo'>
+            <label for="titulo">Título</label>
+            <input type="text" name="titulo" id="titulo">
+            </div>
+            <div class='conteudo'>
             <label for="conteudo">Conteúdo</label>
-            <textarea name="conteudo" id="conteudo" cols="30" rows="10"></textarea>
-        </div>
-        <div class='post'>
-		<div class='postInterno'>
-		<div class='titulo'>
-		<input type="text">
-		</div>
-		<div class='conteudo'>
-		<textarea name="conteudo" id="conteudo" cols="65" rows="10"></textarea>
-		</div>
-        <button type="submit">Criar Publicação</button>
-    </form>
+            <textarea name="conteudo" id="conteudo" cols="65" rows="10"></textarea>
+            </div>
+            <div class="rodape">
+                <button type="submit">Criar Publicação</button>
+            </div>
+            
+        </form>
+    </main>
+    
 </body>
 </html>

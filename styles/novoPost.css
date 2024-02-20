@@ -8,12 +8,13 @@
     min-width: 200px;
     right: 0;
     top: 0;
-    background-color: #2c9f92;
+    background-color: #272727;
     height: 100vh;
     position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 
 }
 
@@ -27,7 +28,7 @@
 .menu #user{
     font-weight: bold;
 }
-.menu .adicionarBotao, .menu .perfilBotao{
+.menu .paginaInicial{
    
     display: flex;
     justify-content: center;
@@ -36,7 +37,7 @@
    
 }
 
-.menu .adicionarBotao a, .menu .perfilBotao a{
+.menu .paginaInicial a{
     cursor: pointer;
     
     border: 1px solid black;
@@ -45,7 +46,7 @@
     align-items: center;
     gap: .5em;
     padding: 0 .2em;
-    background-color: #a6e9cc;
+    background-color: #ffffff;
     color: rgb(0, 0, 0);
     transition: .5s;
     text-align: center;
@@ -54,7 +55,7 @@
     text-decoration: none;
     justify-content: center;
 }
-.menu .adicionarBotao a:hover, .menu .perfilBotao a:hover{
+.menu .paginaInicial a:hover, .menu .perfilBotao a:hover{
     background-color: #fafafa;
 }
 
@@ -113,9 +114,39 @@ main{
 
 .post .titulo{
     padding-left: 1em;
+    display: flex;
+    gap: 5px;
 }
 
 .post .titulo input{
     padding: 1em;
-    width: 70%;
+    width: 79%;
+    border-top: 0;
+    border-bottom: 0;
+    
+    background-color: transparent;
+
+    
+}
+
+.post textarea{
+    resize: none;
+}
+
+.post button{
+    background-color: rgb(79, 79, 79);
+    padding: .7em;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.post .rodape{
+    width: 100%;
+    
+    
+    text-align: center;
+    
+    
 }

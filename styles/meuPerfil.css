@@ -108,7 +108,7 @@ body{
     color: white;
 }
 
-.menu .adicionarBotao, .menu .perfilBotao{
+.menu .adicionarBotao, .menu .paginaInicial{
    
     display: flex;
     justify-content: center;
@@ -117,7 +117,7 @@ body{
    
 }
 
-.menu .adicionarBotao a, .menu .perfilBotao a{
+.menu .adicionarBotao a, .menu  .paginaInicial a{
     cursor: pointer;
     
     border: 1px solid black;
@@ -135,7 +135,7 @@ body{
     text-decoration: none;
     justify-content: center;
 }
-.menu .adicionarBotao a:hover, .menu .perfilBotao a:hover{
+.menu .adicionarBotao a:hover, .menu  .paginaInicial a:hover{
     background-color: #666666;
     color: white;
 }

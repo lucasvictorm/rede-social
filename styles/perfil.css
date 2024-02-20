@@ -1,0 +1,74 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.menu{
+    padding: 1em;
+    width: 15%;
+    min-width: 200px;
+    right: 0;
+    top: 0;
+    background-color: #272727;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+
+}
+
+.menu img{
+    width: 200px;
+    height: 200px;
+  
+    border-radius: 50%;
+}
+
+.menu #user{
+    font-weight: bold;
+}
+.menu .paginaInicial{
+   
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+
+}
+
+.menu .paginaInicial a{
+    cursor: pointer;
+    
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: .6em .2em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    transition: .5s;
+    text-align: center;
+    margin-top: 1em;
+    width: 100%;
+    text-decoration: none;
+    justify-content: center;
+}
+.menu .paginaInicial a:hover, .menu .perfilBotao a:hover{
+    background-color: #fafafa;
+}
+.perfilHeader{
+    background-color: #333333;
+    display: flex;
+    height: 30%;
+    width: 100%;
+    padding: 2em;
+    justify-content: center;
+    align-items: center;
+}
+

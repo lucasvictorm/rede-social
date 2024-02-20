@@ -28,7 +28,10 @@ join usuarios u on u.id = p.usuario_id") or die(mysqli_error($conexao));
 	
 	$menuData = mysqli_fetch_assoc($sqlUser);
 	
-	echo("<div class='menu'>
+	echo("
+	
+	<div class='menu'>
+	<div>
 	<img src='./fotosPerfil/".$menuData["foto"]."' alt='Foto de perfil'>
 	<p id='user'>".$menuData['username']."</p>
 	
@@ -49,8 +52,17 @@ join usuarios u on u.id = p.usuario_id") or die(mysqli_error($conexao));
 	</span><p>Configurações</p>
 	</a>
 	</div>
-	
-	</div>");
+	</div>
+
+	<div class='logout'>
+	<a href='logout.php'>
+	<span class='material-symbols-outlined'>
+	logout
+	</span>Logout</div>
+	</a>
+	</div>
+	</div>
+	");
 	echo("<main>");
 while($dados = mysqli_fetch_assoc($sql)){
 	$row = mysqli_query($conexao, "select posts.id from posts where posts.id = ".$dados["id"]." and posts.usuario_id = ".$_SESSION["user_id"]) or die(mysqli_error($conexao));
@@ -91,7 +103,7 @@ while($dados = mysqli_fetch_assoc($sql)){
 </main>
 	
 
-	<a href="logout.php">Sair</a>
+	
 </body>
 <script>
 
