@@ -15,6 +15,7 @@
     $sql=mysqli_query($conexao, "select * from usuarios where id = $user_id") or die(mysqli_error($conexao));
     $dados = mysqli_fetch_assoc($sql);
     
+    
     ?>
 
     <div class='menu'>
@@ -59,17 +60,17 @@
         <input type="file" name="foto" id="foto" >
         <div>
             <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" value=<?= $dados["nome"]?>>
+            <input type="text" name="nome" id="nome" value="<?=$dados["nome"]?>" required>
         </div>
 
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" value=<?= $dados["email"]?>>
+            <input type="email" name="email" id="email" value=<?= $dados["email"]?> required>
         </div>
         
         <div>
             <label for="password">Senha</label>
-            <input type="password" name="password" id="password" value=<?=$dados["senha"]?>>
+            <input type="password" name="password" id="password" value=<?=$dados["senha"]?> required>
         </div>
         </div>
         <div class="divRight">
@@ -89,6 +90,7 @@
     </section>
     <main>
         <?php 
+        
         $sqlPosts = mysqli_query($conexao, "select p.usuario_id, p.id, p.titulo, p.conteudo, u.username, u.foto from posts as p
         join usuarios u on u.id = p.usuario_id and u.id = $userId order by id desc") or die(mysqli_error($conexao));
         while($dados = mysqli_fetch_assoc($sqlPosts)){

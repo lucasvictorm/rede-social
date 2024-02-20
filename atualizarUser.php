@@ -7,7 +7,7 @@
     $senha = $_POST["password"];
     $foto = $_FILES["foto"]["name"];
     $bio = $_POST["bio"];
-    echo($bio);
+    echo($nome);
     $formato = pathinfo($foto, PATHINFO_EXTENSION);
     $novo_nome = "fotoId$id";
     $diretorio = "./fotosPerfil/";
