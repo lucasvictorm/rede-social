@@ -2,8 +2,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .post{
     background-color: rgb(255, 255, 255);
     width: 500px;
@@ -150,9 +148,11 @@
     text-decoration: none;
     justify-content: center;
 }
-.menu .adicionarBotao a:hover, .menu .perfilBotao a:hover{
-    background-color: #fafafa;
+.menu div .adicionarBotao a:hover, .menu .perfilBotao a:hover{
+    background-color: #666666;
+    color: white;
 }
+
 
 main{
     display: flex;

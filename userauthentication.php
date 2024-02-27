@@ -11,6 +11,14 @@ include "./connection.php"
 	<title>Autenticação</title>
 </head>
 <body>
+	<script>
+		function deuErro(){
+			window.location='login.php?status="erro"';
+		}
+	
+	
+	
+	</script>
 <?php
 $username=$_POST['username'];
 $senha=$_POST['senha'];
@@ -30,7 +38,8 @@ if ($row > 0){
    }
 	else
 	{
- echo"<script>window.location='login.php?status='naoexiste''</script>";
+		echo'<script>deuErro()</script>';
+ //echo'<script>window.location="login.php?status="err"</script>';
 }
 ?>
 </body>
